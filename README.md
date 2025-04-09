@@ -23,3 +23,4 @@ MPO is still evolving, and future updates may include additional features such a
 - A more robust blog section
 - Commenting and interaction features
 - Enhanced user profiles and privacy settings
+- Live demo coming soon !
