@@ -1,0 +1,19 @@
+body, main, h1, h2 {
+	font-family: "Century Gothic", verdana, sans-serif;
+}
+
+body {
+	border: none;
+	box-shadow: none;
+	width: auto;
+	margin: 1in;
+}
+
+nav, header, aside, footer, img {
+	display: none;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}

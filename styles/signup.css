@@ -1,0 +1,26 @@
+/* Gaetano James Panzer II */
+p {
+	margin-left: 4em;
+	font-weight: bold;
+}
+h1, h2 {
+			font-family: Audiowide;
+		}
+		label {
+			display: block;
+			float: left;
+			width: 20%;
+			text-align: right;
+		}
+		input {
+			margin-left: 2%;
+			margin-bottom: .5em;
+			width: 55%;
+		}	
+		#button {
+			background-color: #080F8C;
+			border: 2px solid black;
+			margin-left: 9.75em;
+			width: 18%;
+			color: white;
+		}

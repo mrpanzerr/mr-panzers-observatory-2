@@ -1,0 +1,36 @@
+h1, h2 {
+	font-family: Audiowide;
+}
+h1 {
+	margin-bottom: 10px;
+}
+p {
+	margin-top: 5px;
+}
+.gallery-container {
+	display: flex;
+	flex-direction: column; /* Stack galleries vertically */
+	gap: 20px; /* Space between each gallery */
+}
+.cat_gallery {
+	display: flex;
+	gap: 10px; /* Space between images */
+	overflow-x: auto; /* Enable horizontal scrolling for the gallery */
+	scroll-snap-type: x mandatory; /* Smooth scrolling for each image */
+	padding-bottom: 10px; /* Optional padding to enhance scrolling visuals */
+	border: 2px solid #ddd; /* Optional: visually separate galleries */
+	border-radius: 8px; /* Optional: rounded edges */
+}
+.cat_gallery img {
+	width: 200px; /* Set consistent width for images */
+	height: auto; /* Maintain aspect ratio */
+	object-fit: cover; /* Prevent image distortion */
+	border: 2px solid #ccc;
+	border-radius: 8px; /* Optional rounded corners */
+	scroll-snap-align: start; /* Align images neatly in the viewport */
+	transition: transform 0.3s; /* Smooth hover effect */
+}
+.cat_gallery img:hover {
+	transform: scale(1.1); /* Slight zoom effect on hover */
+	border-color: #333; /* Change border color on hover */
+}
