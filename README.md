@@ -24,3 +24,4 @@ MPO is still evolving, and future updates may include additional features such a
 - Commenting and interaction features
 - Enhanced user profiles and privacy settings
 - Live demo coming soon !
+- Link to the first version [here](https://github.com/mrpanzerr/mr-panzers-observatory)
