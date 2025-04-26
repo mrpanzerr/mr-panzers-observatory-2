@@ -40,7 +40,7 @@ if (isset($_POST['submit']) && $_POST['submit']=="Login" ) {
 				$pw_hash=$result['pw'];
 				if (password_verify($password, $pw_hash )) { //passwords match
 					$username = $result['username'];
-					//your code here
+					$folder = $result['folder'];
 					
 					// Start a session
 					session_start();
@@ -48,6 +48,7 @@ if (isset($_POST['submit']) && $_POST['submit']=="Login" ) {
 					// Store the user's first name and email in separate $_SESSION variables
 					$_SESSION['username'] = htmlspecialchars($username);
 					$_SESSION['email'] = htmlspecialchars($email);
+					$_SESSION['folder'] = htmlspecialchars($folder);
 
 					header('Location: logged_in.php');
 					

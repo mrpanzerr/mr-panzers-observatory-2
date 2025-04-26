@@ -11,7 +11,7 @@ session_start();
 
 if (isset($_SESSION['username'])) {
 	$username = htmlspecialchars($_SESSION['username']);
-	$message = "Welcome back $username!";
+	$message = "Welcome, $username!";
 	$message2 = "Thanks for joining my journey! Please login to continue.";
 	
 	// Empty the $_SESSION array

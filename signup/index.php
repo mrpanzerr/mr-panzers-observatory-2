@@ -54,12 +54,18 @@
 				$missing['exists'] = "That email address is already registered.";
 			
 			if (empty($missing)) {
-				$sql2 = "INSERT INTO MPO_reg_users (username, email, pw) VALUES (?, ?, ?)";
+				
+				//Folder name is email stripped of non-alphanumeric characters
+				$folder = preg_replace("/[^a-zA-Z0-9]/", "", $email);
+				// make lowercase
+				$folder = strtolower($folder);
+				$sql2 = "INSERT INTO MPO_reg_users (username, email, pw, folder) VALUES (?, ?, ?, ?)";
 				$stmt2 = $dbc->prepare($sql2);
 				$pw_hash= password_hash($password, PASSWORD_DEFAULT);
 				$stmt2->bindParam(1, $username);
 				$stmt2->bindParam(2, $email);
 				$stmt2->bindParam(3, $pw_hash);
+				$stmt2->bindParam(4, $folder);
 				$stmt2->execute();
 				$numRows = $stmt2->rowCount();
 				if ($numRows != 1)
@@ -68,6 +74,10 @@
 					$_SESSION['username'] = $username;
 					header('Location: subscribed.php');
 				}
+				//create the directory in the uploads folder
+				$dirPath = "../../../../MPO_uploads/".$folder;
+				mkdir($dirPath,0777);
+				
 				include 'includes/footer.php'; 
 				exit;
 			}#end !missing	

@@ -14,6 +14,8 @@ $basePath = str_repeat('../', $depth);
 			<li><a href="<?= $basePath ?>signup/index.php" <?= (strpos($_SERVER['SCRIPT_NAME'], '/signup/') !== false) ? 'id="current"' : '' ?>>Sign Up</a></li>
 			<li><a href="<?= $basePath ?>login/index.php" <?= (strpos($_SERVER['SCRIPT_NAME'], '/login/') !== false) ? 'id="current"' : '' ?>>Log In</a></li>
 		<?php } else { ?>
+			<li><a href="<?= $basePath ?>upload/index.php" <?= (strpos($_SERVER['SCRIPT_NAME'], '/upload/index.php') !== false) ? 'id="current"' : '' ?>>Upload Story</a></li>
+			<li><a href="<?= $basePath ?>upload/display_post.php" <?= (strpos($_SERVER['SCRIPT_NAME'], '/upload/display_post.php') !== false) ? 'id="current"' : '' ?>>View Stories</a></li>
 			<li><a href="<?= $basePath ?>logout/index.php" <?= (strpos($_SERVER['SCRIPT_NAME'], '/logout/') !== false) ? 'id="current"' : '' ?>>Log Out</a></li>
 		<?php } ?>
     </ul>
