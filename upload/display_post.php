@@ -45,19 +45,21 @@
 	<?php if ($postNum == 0) { ?>
 		<h2>No stories yet! Upload some stories using this link: <a href="index.php">Upload Story</a></h2>
 	<?php } else { // If page number is 1 and theres more posts to show, display Next>> arrow 
+		if ($pageNum < 1 || $pageNum > count($uploads)) {
+			$pageNum = 1; // or redirect with error
+		}
 		
 		$currentUpload = $uploads[$pageNum - 1];
 		
-		echo '<div>';
 		// Show title
-		echo '<h2>' . (html_entity_decode($currentUpload['title'])) . '</h2>';
+		echo '<h2>' . (htmlspecialchars($currentUpload['title'])) . '</h2>';
 		
 		// $currentUpload['fileName'] contains the image name from DB
 		$imageURL = 'serve_image.php?image=' . urlencode($currentUpload['fileName']);
 		echo '<img src="' . $imageURL . '" alt="Uploaded image" style="max-width: 300px;">';
 		
 		// Show the story
-		echo '<p><strong>Story:</strong> ' . (html_entity_decode($currentUpload['comments'])) . '</p>';
+		echo '<p><strong>Story:</strong> ' . (htmlspecialchars($currentUpload['comments'])) . '</p>';
 		if ($pageNum > 1) {
 			echo '<a href="display_post.php?page=' . ($pageNum - 1) . '">&lt;&lt; PREV</a> ';
 		}
@@ -65,6 +67,5 @@
 			echo '<a href="display_post.php?page=' . ($pageNum + 1) . '">NEXT &gt;&gt;</a>';
 		}
 		echo '<p style="text-align: right">Displaying ' . $pageNum . ' of ' . $postCount . '</p>';} 
-		echo '</div>';
 	?>
 <?php include '../includes/footer.php'; ?>

@@ -76,7 +76,12 @@
 				}
 				//create the directory in the uploads folder
 				$dirPath = "../../../../MPO_uploads/".$folder;
-				mkdir($dirPath,0777);
+				if (!is_dir($dirPath)) {
+					if (!mkdir($dirPath, 0777, true)) {
+						echo "<h2>Failed to create user directory.</h2>";
+						exit;
+					}
+				}
 				
 				include 'includes/footer.php'; 
 				exit;

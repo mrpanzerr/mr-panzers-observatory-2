@@ -51,7 +51,6 @@ if (isset($_POST['submit']) && $_POST['submit']=="Login" ) {
 					$_SESSION['folder'] = htmlspecialchars($folder);
 
 					header('Location: logged_in.php');
-					
 					exit;
 				}
 				else {
@@ -85,9 +84,9 @@ if (isset($_POST['submit']) && $_POST['submit']=="Login" ) {
 				
 		<?php // Show password errors
 			if (isset($missing['wrong_pw'])) 
-				echo '<strong>' . $missing['wrong_pw'] . '</strong><br>';
+				echo '<strong>' . htmlspecialchars($missing['wrong_pw']) . '</strong><br>';
 			if (isset($missing['pw'])) 
-				echo '<strong>'. $missing['pw'] . '</strong><br>';
+				echo '<strong>'. htmlspecialchars($missing['pw']) . '</strong><br>';
 		?>
  		<label for="password">Password:</label>
 		<input type="password" placeholder="Enter Password" name="password" id="password"><br>

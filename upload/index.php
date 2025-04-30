@@ -46,7 +46,10 @@ if (isset($_SESSION['username'], $_SESSION['folder'], $_SESSION['email'])) {
             $uploadDir = "../../../../MPO_uploads/$folder";
             $targetPath = "$uploadDir/$safeName";
 
-            if (in_array($fileType, $allowedTypes)) {
+			// Use getimagesize() to verify the file is a valid image
+			$imageInfo = getimagesize($fileTmp); // returns false if not an image
+            
+			if ($imageInfo !== false && in_array($imageInfo['mime'], $allowedTypes)) {
                 if (!is_dir($uploadDir)) {
                     mkdir($uploadDir, 0777, true);
                 }
@@ -73,10 +76,9 @@ if (isset($_SESSION['username'], $_SESSION['folder'], $_SESSION['email'])) {
             $stmt->bindParam(5, $comments);
             $stmt->execute();
 
-            echo "<section><h2>Your story has been saved!<h2>";
+            echo "<section><h2>Your story has been saved!</h2>";
             if ($name)
-				echo "<h2>The file " . htmlspecialchars($originalName) . " was uploaded too!";
-            echo "</h2></section>";
+				echo "<h2>The file " . htmlspecialchars($originalName) . " was uploaded too! </h2>";
 			// insert link to view post page
             include '../includes/footer.php';
             exit;

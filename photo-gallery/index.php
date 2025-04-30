@@ -118,8 +118,5 @@
 					</div>
 				</div>
 			</div>
-		</section>
+			<script src="../scripts/photo-gallery.js"></script>
 		<?php include '../includes/footer.php'; ?>
-	<script src="../scripts/photo-gallery.js"></script>
-</body>
-</html>
